@@ -1,0 +1,42 @@
+Benchmarking localhost (be patient)
+Completed 5000 requests
+Finished 8865 requests
+
+
+Server Software:        nginx/1.4.6
+Server Hostname:        localhost
+Server Port:            80
+
+Document Path:          /
+Document Length:        17537 bytes
+
+Concurrency Level:      10
+Time taken for tests:   60.001 seconds
+Complete requests:      8865
+Failed requests:        0
+Keep-Alive requests:    0
+Total transferred:      157148470 bytes
+HTML transferred:       155481662 bytes
+Requests per second:    147.75 [#/sec] (mean)
+Time per request:       67.683 [ms] (mean)
+Time per request:       6.768 [ms] (mean, across all concurrent requests)
+Transfer rate:          2557.71 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.9      0      52
+Processing:    20   67  37.2     62    1035
+Waiting:       18   63  36.3     57    1008
+Total:         20   68  37.2     62    1036
+
+Percentage of the requests served within a certain time (ms)
+  50%     62
+  66%     74
+  75%     81
+  80%     86
+  90%    102
+  95%    117
+  98%    143
+  99%    165
+ 100%   1036 (longest request)
+

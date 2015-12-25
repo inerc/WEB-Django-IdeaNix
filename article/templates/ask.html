@@ -1,0 +1,29 @@
+{% extends  'base.html' %}
+
+{% load staticfiles %}
+
+        {% block header %}
+<h1 id="typography">Create Idea</h1>
+        {% endblock %}
+
+        {% block body %}
+<div class="form-group col-md-8">
+    <label class="control-label" for="focusedInput">Name of your Idea is ...</label>
+    <input class="form-control" id="focusedInput" type="text" value="Are you sure?? :)">
+    <label class="control-label" for="inputLarge">Description</label>
+    <input class="form-control input-lg" type="text" id="inputLarge" value="Tell us your idea of the world">
+    <label class="control-label" for="focusedInput">Tags</label>
+    <input class="form-control" id="focusedInput" type="text" value=":)">
+    <br />
+    <div class="col-lg-8">
+
+    </div>
+    <div class="col-lg-3">
+        <a href="#" class="btn btn-success">Post Idea</a>
+    </div>
+</div>
+
+
+
+</div>
+        {% endblock %}

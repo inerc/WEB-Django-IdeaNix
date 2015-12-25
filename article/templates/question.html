@@ -1,0 +1,117 @@
+{% extends  'base.html' %}
+
+{% load staticfiles %}
+
+        {% block header %}
+<h1 id="typography">Question</h1>
+        {% endblock %}
+
+
+        {% block body %}
+<div class="jumbotron col-lg-10">
+<div class="avatar col-md-4">
+
+    <h4><a href="/articles/get/{{ article.id}} ">{{ article.article_title}}</a></h4>
+
+    <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="150px" height="150px"/>
+    <p></p>
+    <ul class="nav2 nav-pills col-md-6">
+
+
+        <li><a href="#">Like <span class="badge">{{ article.article_likes}}</span></a></li>
+
+
+
+    </ul>
+    <ul class="nav2 nav-pills col-md-6">
+
+
+
+        <li><a href="#">Dislike <span class="badge">3</span></a></li>
+
+
+    </ul>
+</div>
+
+<!--Like-Dislike-->
+<div class="col-md-8">
+    <p>{{ article.article_text }} </p>
+</div>
+<div class="col-md-8">
+    <ul class="nav nav-pills">
+
+        <li><a href="#">Profile Idea <span class="badge"></span></a></li>
+        <li><a href="#">More info <span class="badge"></span></a></li>
+        <li><a href="#">Komments <span class="badge">3</span></a></li>
+
+
+    </ul>
+</div>
+</div>
+<div class="col-lg-10">
+    <div class="page-header">
+        <h1 id="typography">Comments</h1>
+    </div>
+</div>
+
+</div>
+        <div class="col-md-10">
+            <div class="col-md-4">
+            {% if username %}
+            <form action="/articles/addcomment/{{ article.id }}/" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="button" value="Добавить комментарий">
+            </form>
+            {% endif %}
+            </div>
+
+
+
+        </div>
+
+{% for comment in comments %}
+
+<div class="jumbotron col-lg-7">
+
+
+    <div class="avatar col-md-4">
+
+        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="150px" height="150px"/>
+
+    </div>
+
+    <div class="col-md-8">
+        <p>{{comment.comments_text}}</p>
+    </div>
+    <div class="col-md-8">
+        <ul class="nav nav-pills col-md-8">
+
+            <!--<li><a href="#">Profile Idea <span class="badge"></span></a></li>
+             <li><a href="#">More info <span class="badge"></span></a></li>
+            <li><a href="#">Komments <span class="badge">3</span></a></li>-->
+            <li class="active"><a href="#">Like <span class="badge">42</span></a></li>
+
+
+
+        </ul>
+
+        <div class="checkbox col-md-6">
+
+            <label>
+                <input type="checkbox" {{comment.comments_best}}> Верный ответ
+            </label>
+        </div>
+    </div>
+
+
+
+
+</div>
+        {% endfor %}
+
+
+{% include 'paginator.html' %}
+
+
+        {% endblock%}

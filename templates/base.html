@@ -1,0 +1,377 @@
+<!DOCTYPE html>{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IdeaNix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'boost/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/custom.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <script>
+
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+</head>
+<body>
+
+<!-- Баннер+ шапка-->
+
+<div class="container">
+
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-6">
+
+               <a href="/"> <h1>IdeaNix</h1></a>
+
+                <p class="lead">Share your Idea on the portal IdeaNix</p>
+            </div>
+            <div class="col-lg-4">
+
+
+                <img src="{% static 'img/logo.png' %}" alt="Пример аватара" width="250px" height="150px"/>
+
+            </div>
+        </div>
+
+        <!-- Поиск
+          ================================================== -->
+        <div class="bs-docs-section clearfix">
+            <div class="row">
+                <div class="col-lg-12">
+
+
+                    <div class="bs-component">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#">Finder</a>
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <!--  <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                                          <li><a href="#">Link</a></li>
+                                          <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">One more separated link</a></li>
+                                        </ul>
+                                        </li>
+                                    </ul>
+                                    <form class="navbar-form navbar-left" role="search">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Idea is coming...">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit</button>
+                                    </form>
+
+                                    {% if username %}
+
+                                    <ul class="nav navbar-nav navbar-right">
+
+                                    </ul><ul class="nav navbar-nav navbar-right">
+                                    <li><a href="messages">Messages <span class="badge">3</span></a></li>
+                                </ul><ul class="nav navbar-nav navbar-right">
+                                    <li><a href="profile">Profile <span class="badge"></span></a></li>
+                                </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="50px" height="50px"/></li>
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <a class="navbar-brand" href="/auth/logout/"> Log out ({{ username }})</a>
+
+                                        {% else %}
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a href="#">Log out</a></li>
+                                        </ul><ul class="nav navbar-nav navbar-right">
+                                        <li><a href="messages">Messages <span class="badge">3</span></a></li>
+                                    </ul><ul class="nav navbar-nav navbar-right">
+                                        <li><a href="profile">Profile <span class="badge"></span></a></li>
+                                    </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="50px" height="50px"/></li>
+                                        </ul>
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <a class="navbar-brand" href="/auth/login/">Log in</a>
+
+
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Поиск==================================================
+        -->
+
+        <!-- Header=======================-->
+        <div class="col-md-8">
+            <div class="bs-docs-section col-md-12 ">
+
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        {% block header  %} {% endblock %}
+                        {% block article %}{% endblock %}
+                        {% block login %}{% endblock %}
+
+                        <!--<h1 id="typography">Last updated Ideas</h1>-->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Поле-идея
+
+            <div class="jumbotron col-lg-12">-->
+
+
+                {% block body %} {% endblock %}
+
+
+
+            <!--</div>
+             Поле-идея-->
+
+
+
+            {% block tags %} {% endblock %}
+        </div>
+    <!-- Tags -->
+
+
+        <!--Panel top idea-->
+
+        <div class="col-lg-4">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel top idea</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-4">
+
+                        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="120px" height="120px"/>
+
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="panel-title">Like</h3>
+                        <div class="progress">
+
+                            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                        </div>
+                        <h3 class="panel-title">Power</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <h3 class="panel-title">Active</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel-body">
+                    <div class="col-lg-4">
+
+                        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="120px" height="120px"/>
+
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="panel-title">Like</h3>
+                        <div class="progress">
+
+                            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                        </div>
+                        <h3 class="panel-title">Power</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <h3 class="panel-title">Active</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel-body">
+                    <div class="col-lg-4">
+
+                        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="120px" height="120px"/>
+
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="panel-title">Like</h3>
+                        <div class="progress">
+
+                            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                        </div>
+                        <h3 class="panel-title">Power</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <h3 class="panel-title">Active</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel-body">
+                    <div class="col-lg-4">
+
+                        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="120px" height="120px"/>
+
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="panel-title">Like</h3>
+                        <div class="progress">
+
+                            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                        </div>
+                        <h3 class="panel-title">Power</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <h3 class="panel-title">Active</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-4">
+
+                        <img src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="120px" height="120px"/>
+
+                    </div>
+                    <div class="col-lg-8">
+                        <h3 class="panel-title">Like</h3>
+                        <div class="progress">
+
+                            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+                        </div>
+                        <h3 class="panel-title">Power</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <h3 class="panel-title">Active</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-12">
+
+                <a href="#" class="btn btn-info">html</a>
+                <a href="#" class="btn btn-warning">Labview</a>
+                <a href="#" class="btn btn-info">html5</a>
+                <a href="#" class="btn btn-warning">C++</a>
+                <a href="#" class="btn btn-success">php</a>
+                <a href="#" class="btn btn-danger">SearchS</a>
+
+            </div>
+        </div>
+
+
+        <!--Panel top idea-->
+
+        {% block comments %} {% endblock %}
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Made by <a href="https://park.mail.ru" rel="nofollow">Evgenii Kozinchenko</a>. Contact him at <a href="http://vk.com/inerc">vk.com</a>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+    <!--Скрип облака тегов-->
+
+
+
+    <!--Скрип облака тегов-->
+
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script type="text/javascript">
+/* <![CDATA[ */
+(function(){try{var s,a,i,j,r,c,l=document.getElementsByTagName("a"),t=document.createElement("textarea");for(i=0;l.length-i;i++){try{a=l[i].getAttribute("href");if(a&&a.indexOf("/cdn-cgi/l/email-protection") > -1  && (a.length > 28)){s='';j=27+ 1 + a.indexOf("/cdn-cgi/l/email-protection");if (a.length > j) {r=parseInt(a.substr(j,2),16);for(j+=2;a.length>j&&a.substr(j,1)!='X';j+=2){c=parseInt(a.substr(j,2),16)^r;s+=String.fromCharCode(c);}j+=1;s+=a.substr(j,a.length-j);}t.innerHTML=s.replace(/</g,"&lt;").replace(/>/g,"&gt;");l[i].setAttribute("href","mailto:"+t.value);}}catch(e){}}}catch(e){}})();
+/* ]]> */
+</script>
+
+</body>
+</html>

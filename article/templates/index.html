@@ -1,0 +1,64 @@
+{% extends  'base.html' %}
+
+{% load staticfiles %}
+
+  {% block header %}
+<h1 id="typography">Last updated Ideas</h1>
+   {% endblock %}
+
+        {% block body %}
+{% for article in articles %}
+<!--Like-Dislike-->
+<div class="jumbotron col-lg-12">
+<div class="avatar col-md-4">
+
+    <h4> <a href="/articles/get/{{ article.id }}/">{{ article.article_title }}</a></h4>
+    <h6>Дата публикации:{{ article.article_date }}</h6>
+    <img  src="{% static 'img/avatar.jpg' %}" alt="Пример аватара" width="150px" height="150px"/>
+    <p></p>
+    <ul class="nav2 nav-pills col-md-6">
+
+
+       <li><a href="/articles/addlike/{{ article.id }}/" > Like <span class="badge"> {{ article.article_likes }}</span></a></li>
+
+
+
+    </ul>
+    <ul class="nav2 nav-pills col-md-6">
+
+
+
+        <li><a href="/disslike/ {{ article.id }}">Dislike <span class="badge">{{ article.article_likes }}</span></a></li>
+
+
+    </ul>
+</div>
+<!--Like-Dislike-->
+<div class="col-md-8">
+    <p>{{ article.article_text }} </p>
+</div>
+<div class="col-md-8">
+    <ul class="nav nav-pills">
+
+        <li><a href="#">Profile Idea <span class="badge"></span></a></li>
+        <li><a href="#">More info <span class="badge"></span></a></li>
+        <li><a href="#">Komments <span class="badge">3</span></a></li>
+
+
+    </ul>
+    </br>
+    <div class="col-md-6">
+    <a href="#" class="btn btn-info">tags</a>
+        <a href="#" class="btn btn-warning">tags</a>
+        <a href="#" class="btn btn-info">tags</a>
+        <a href="#" class="btn btn-warning">tags</a>
+    </div>
+</div>
+
+
+</div>
+
+
+  {% endfor %}
+{% include 'paginator.html' %}
+{% endblock %}
